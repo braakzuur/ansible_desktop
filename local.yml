@@ -9,5 +9,21 @@
       name:
         - htop
         - rustdesk
-        - brave
-        - obsidian
+
+  -name: Ensure wallpaper directory exists 
+   file: 
+     path: ~/Pictures/Wallpaper
+     state: directory
+
+  - name: Copy wallpaper file
+    copy:
+      src: files/wallpaper.png
+      desk: ~/Pictures/Wallpapers/wallpaper.png
+
+  - name: Set wallpaper
+    shell: |
+      kwriteconfig5 --group Containments --group 1 --group Wallpaper --group org.kde.image --key wallpaper ~/Pictures/Wallpapers/wallpaper.jpg
+      kwriteconfig5 --group Containments --group 1 --group Wallpaper --group org.kde.image --key plugin org.kde.image
+      qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.reparseConfiguration
+    become: false
+
