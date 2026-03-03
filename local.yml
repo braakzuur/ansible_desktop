@@ -11,15 +11,15 @@
         - rustdesk
         - python3-psutil
 
-  -name: Ensure wallpaper directory exists 
-   file: 
-     path: ~/Pictures/Wallpaper
+  -name: Ensure wallpaper directory exists
+   file:
+     path: /home/braak/Pictures/Wallpaper
      state: directory
 
   - name: Copy wallpaper file
     copy:
-      src: files/wallpaper.png
-      desk: ~/Pictures/Wallpapers/wallpaper.png
+      src: files/wallpaper.jpg
+      desk: /home/braak/Pictures/Wallpapers/wallpaper.jpg
 
   - name: Set wallpaper
     shell: |
