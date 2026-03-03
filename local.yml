@@ -6,4 +6,5 @@
   tasks:
   - name: install htop
     package:
-      name: make
+      name:
+        - htop
