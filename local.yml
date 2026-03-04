@@ -8,7 +8,6 @@
     package:
       name:
         - htop
-        - rustdesk
         - python3-psutil
 
   -name: Ensure wallpaper directory exists
